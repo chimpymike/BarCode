@@ -1,0 +1,7 @@
+# Ignore compiled Java classes
+*.class
+
+# Ignore Java package files
+*.jar
+*.war
+*.ear
