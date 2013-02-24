@@ -20,4 +20,8 @@ public class BarCode {
 	    System.out.println("Not a valid zipcode or barcode!!!");
 	}
     }
+
+    public String getZipCode() {
+	return myZipCode;
+    }
 }
