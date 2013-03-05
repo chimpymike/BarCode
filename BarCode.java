@@ -24,4 +24,8 @@ public class BarCode {
     public String getZipCode() {
 	return myZipCode;
     }
+
+    public String getBarCode() {
+	return myBarCode;
+    }
 }
