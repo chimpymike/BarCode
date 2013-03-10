@@ -46,4 +46,34 @@ public class BarCode {
 	}
 	return String.valueOf(digitBarCode);
     }
+
+    private boolean isValidBarCode() {
+	// Check for valid frame bars
+	if (!(myBarCode.charAt(0) == FULL_BAR && myBarCode.charAt(myBarCode.length()-1) == FULL_BAR)) {
+	    return false;
+	} else {
+	    // Check for valid digit patterns and a valid check digit
+	    int decodedDigitsSum = 0;
+	    for (int i = 1; i < myBarCode.length()-7; i += 5) {
+		String myBarCodeDigit = myBarCode.substring(i, i + 4);
+		if (countChars(myBarCodeDigit, FULL_BAR) != 2 && countChars(myBarCodeDigit, HALF_BAR) != 3) {
+		    return false;
+		} else {
+		    decodedDigitsSum += codeToDigit(myBarCodeDigit);
+		}
+		// Validate the check digit pattern
+		String checkDigitBarCode = myBarCode.substring(26, 30);
+		if (countChars(checkDigitBarCode, FULL_BAR) != 2 && countChars(checkDigitBarCode, HALF_BAR) != 3) {
+		    return false;
+		} else {
+		    // Validate the check digit value
+		    if (getCheckDigit(decodedDigitsSum) != codeToDigit(checkDigitBarCode)) {
+			return false;
+		    }
+		}
+	    }
+	}
+	// All tests passed, this must be a valid bar code
+	return true;
+    }
 }
