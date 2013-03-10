@@ -32,4 +32,18 @@ public class BarCode {
     public String getBarCode() {
 	return myBarCode;
     }
+
+    private String codeToDigit(String digitBarCode) {
+	// Decoded digit
+	int digitDecoded = 0;
+
+	// If this is NOT the Zero Digit BarCode special case
+	// then apply the digit weights to each decoded bar
+	if (!digitBarCode.equals(ZERO_DIGIT_BARCODE)) {
+	    for (int i = 0; i < DIGIT_WEIGHTS.length; i++) {
+		digitDecoded += DIGIT_WEIGHTS[i] * (digitBarCode.charAt(i) == '|' ? 1 : 0);
+	    }
+	}
+	return String.valueOf(digitBarCode);
+    }
 }
