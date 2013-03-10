@@ -88,4 +88,9 @@ public class BarCode {
 
 	return charCount;
     }
+
+    private int getCheckDigit(int digitsSum) {
+	int roundUpTen = (digitsSum/10 + 1) * 10;
+	return roundUpTen - digitsSum;
+    }
 }
