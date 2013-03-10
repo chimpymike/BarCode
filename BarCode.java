@@ -51,6 +51,29 @@ public class BarCode {
 	return String.valueOf(digitBarCode);
     }
 
+    private String digitToCode(String digit) {
+	// If this is the Zero Digit BarCode special case
+	// then return the zero digit barcode
+	if (digit == 0) {
+	    return ZERO_DIGIT_BARCODE;
+	} else {
+	    int digitNumber = String.parseInt(digit);
+	    int encodedTotal = 0;
+	    StringBuilder encodedDigit = new StringBuilder();
+	    for (int i = 0; i < DIGIT_WEIGHTS.length; i++) {
+		if (DIGIT_WEIGHTS[i] + encodedTotal <= digitNumber) {
+		    encodedDigit.append(FULL_BAR);
+		    encodedTotal += DIGIT_WEIGHTS[i];
+		} else {
+		    encodedDigit.append(HALF_BAR);
+		}
+	    }
+	    // Append the required full or half bar depending on the count of half bars
+	    encodedDigit.append(countChars(encodedDigit.toString(), HALF_BAR) == 2 ? HALF_BAR : FULL_BAR);
+	    return encodedDigit;
+	}
+    }
+
     private boolean isValidBarCode() {
 	// Check for valid frame bars
 	if (!(myBarCode.charAt(0) == FULL_BAR && myBarCode.charAt(myBarCode.length()-1) == FULL_BAR)) {
