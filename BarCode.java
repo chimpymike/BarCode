@@ -1,4 +1,7 @@
 public class BarCode {
+    // Class Constants
+    private static final String ZERO_DIGIT_BARCODE = "||:::";
+    
     private String myZipCode;
     private String myBarCode;
 
