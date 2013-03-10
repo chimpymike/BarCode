@@ -2,6 +2,10 @@ public class BarCode {
     // Class Constants
     private static final String ZERO_DIGIT_BARCODE = "||:::";
     private static final int[] DIGIT_WEIGHTS = {7, 4, 2, 1};
+    private static final char FULL_BAR = '|';
+    private static final char HALF_BAR = ':';
+    private static final int FULL_BAR_VALUE = 1;
+    private static final int HALF_BAR_VALUE = 0;
     
     private String myZipCode;
     private String myBarCode;
