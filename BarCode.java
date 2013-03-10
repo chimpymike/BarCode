@@ -81,6 +81,17 @@ public class BarCode {
 	return true;
     }
 
+    private boolean isValidZipCode() {
+	// Check that all zipcode characters are digits
+	for (int i = 0; i < myZipCode.length(); i++) {
+	    if (!Character.isDigit(myZipCode.charAt(i))) {
+		return false;
+	    }
+	}
+	// Must be all valid digits
+	return true;
+    }
+
     private int countChars(String targetString, char charToCount) {
 	int charCount = 0;
 
