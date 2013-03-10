@@ -63,7 +63,7 @@ public class BarCode {
 		if (countChars(myBarCodeDigit, FULL_BAR) != 2 && countChars(myBarCodeDigit, HALF_BAR) != 3) {
 		    return false;
 		} else {
-		    decodedDigitsSum += codeToDigit(myBarCodeDigit);
+		    decodedDigitsSum += Integer.parseInt(codeToDigit(myBarCodeDigit));
 		}
 		// Validate the check digit pattern
 		String checkDigitBarCode = myBarCode.substring(26, 30);
@@ -71,7 +71,7 @@ public class BarCode {
 		    return false;
 		} else {
 		    // Validate the check digit value
-		    if (getCheckDigit(decodedDigitsSum) != codeToDigit(checkDigitBarCode)) {
+		    if (getCheckDigit(decodedDigitsSum) != Integer.parseInt(codeToDigit(checkDigitBarCode))) {
 			return false;
 		    }
 		}
