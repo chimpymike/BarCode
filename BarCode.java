@@ -45,7 +45,7 @@ public class BarCode {
 	// then apply the digit weights to each decoded bar
 	if (!digitBarCode.equals(ZERO_DIGIT_BARCODE)) {
 	    for (int i = 0; i < DIGIT_WEIGHTS.length; i++) {
-		digitDecoded += DIGIT_WEIGHTS[i] * (digitBarCode.charAt(i) == '|' ? 1 : 0);
+		digitDecoded += DIGIT_WEIGHTS[i] * (digitBarCode.charAt(i) == FULL_BAR ? FULL_BAR_VALUE : HALF_BAR_VALUE);
 	    }
 	}
 	return String.valueOf(digitBarCode);
