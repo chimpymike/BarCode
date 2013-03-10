@@ -76,4 +76,16 @@ public class BarCode {
 	// All tests passed, this must be a valid bar code
 	return true;
     }
+
+    private int countChars(String targetString, char charToCount) {
+	int charCount = 0;
+
+	for (int i = 0; i < targetString.length(); i++) {
+	    if (targetString.charAt(i) == charToCount) {
+		charCount++;
+	    }
+	}
+
+	return charCount;
+    }
 }
