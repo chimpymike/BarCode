@@ -52,12 +52,13 @@ public class BarCode {
     }
 
     private String digitToCode(String digit) {
+	int digitNumber = Integer.parseInt(digit);
+
 	// If this is the Zero Digit BarCode special case
 	// then return the zero digit barcode
-	if (digit == 0) {
+	if (digitNumber == 0) {
 	    return ZERO_DIGIT_BARCODE;
 	} else {
-	    int digitNumber = String.parseInt(digit);
 	    int encodedTotal = 0;
 	    StringBuilder encodedDigit = new StringBuilder();
 	    for (int i = 0; i < DIGIT_WEIGHTS.length; i++) {
@@ -70,7 +71,7 @@ public class BarCode {
 	    }
 	    // Append the required full or half bar depending on the count of half bars
 	    encodedDigit.append(countChars(encodedDigit.toString(), HALF_BAR) == 2 ? HALF_BAR : FULL_BAR);
-	    return encodedDigit;
+	    return encodedDigit.toString();
 	}
     }
 
