@@ -8,10 +8,12 @@ public class BarCodeTest {
 	System.out.println("Barcode: " + testBarCode1.getBarCode());
 
 	// 2.
+	System.out.println("Creating BarCode #2 ..."); // DEBUG
 	BarCode testBarCode2 = new BarCode("||:|:::|:|:||::::::||:|::|:::|||");
 	String testZipCode2 = testBarCode2.getZipCode();
 	if (testZipCode2.equals("")) {
-	    System.out.println("Error. " + testBarCode2 + " is not a valid BarCode.");
+	    System.out.println("Error. " + testBarCode2.getBarCode() + " is not a valid BarCode.");
+	    System.out.println("ZipCode: " + testZipCode2);
 	} else {
 	    System.out.println("ZipCode: " + testZipCode2);
 	}
