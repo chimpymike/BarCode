@@ -24,6 +24,8 @@ public class BarCode {
 	} else {
 	    // This is not a valid zipcode or barcode
 	    System.out.println("Not a valid zipcode or barcode!!!");
+	    myZipCode = "";
+	    myBarCode = "";
 	}
     }
 
