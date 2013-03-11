@@ -85,6 +85,7 @@ public class BarCode {
 	    return decodedZipCode.toString();
 	} else {
 	    // This is not a valid barcode, return an empty string
+	    System.out.println("NOT A VALID BARCODE!!!"); // DEBUG
 	    return "";
 	}
     }
@@ -130,6 +131,7 @@ public class BarCode {
     private boolean isValidBarCode() {
 	// Check for valid frame bars
 	if (!(myBarCode.charAt(0) == FULL_BAR && myBarCode.charAt(myBarCode.length()-1) == FULL_BAR)) {
+	    System.out.println("BAD FRAME!!!"); // DEBUG
 	    return false;
 	} else {
 	    // Check for valid digit patterns and a valid check digit
@@ -137,6 +139,7 @@ public class BarCode {
 	    for (int i = 1; i < myBarCode.length()-7; i += 5) {
 		String myBarCodeDigit = myBarCode.substring(i, i + 5);
 		if (countChars(myBarCodeDigit, FULL_BAR) != 2 && countChars(myBarCodeDigit, HALF_BAR) != 3) {
+		    System.out.println("BAD DIGIT PATTERN!!!"); // DEBUG
 		    return false;
 		} else {
 		    decodedDigitsSum += Integer.parseInt(codeToDigit(myBarCodeDigit));
@@ -184,6 +187,7 @@ public class BarCode {
 
     private int getCheckDigit(int digitsSum) {
 	int roundUpTen = (digitsSum/10 + 1) * 10;
+	System.out.println("Check Digit: " + (roundUpTen - digitsSum)); // DEBUG
 	return roundUpTen - digitsSum;
     }
 }
