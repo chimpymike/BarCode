@@ -20,8 +20,7 @@ public class BarCode {
 	} else if (code.length() == 32) {
 	    // This is a barcode
 	    myBarCode = code;
-	    // Placeholder for the decode to zipcode method
-	    // decode()
+	    myZipCode = decode();
 	} else {
 	    // This is not a valid zipcode or barcode
 	    System.out.println("Not a valid zipcode or barcode!!!");
