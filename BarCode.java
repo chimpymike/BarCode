@@ -23,7 +23,7 @@ public class BarCode {
 	    myZipCode = decode();
 	} else {
 	    // This is not a valid zipcode or barcode
-	    System.out.println("Not a valid zipcode or barcode!!!");
+	    // Set both fields to an empty string
 	    myZipCode = "";
 	    myBarCode = "";
 	}
@@ -85,7 +85,6 @@ public class BarCode {
 	    return decodedZipCode.toString();
 	} else {
 	    // This is not a valid barcode, return an empty string
-	    System.out.println("NOT A VALID BARCODE!!!"); // DEBUG
 	    return "";
 	}
     }
@@ -131,7 +130,6 @@ public class BarCode {
     private boolean isValidBarCode() {
 	// Check for valid frame bars
 	if (!(myBarCode.charAt(0) == FULL_BAR && myBarCode.charAt(myBarCode.length()-1) == FULL_BAR)) {
-	    System.out.println("BAD FRAME!!!"); // DEBUG
 	    return false;
 	} else {
 	    // Check for valid digit patterns and a valid check digit
@@ -139,7 +137,6 @@ public class BarCode {
 	    for (int i = 1; i < myBarCode.length()-7; i += 5) {
 		String myBarCodeDigit = myBarCode.substring(i, i + 5);
 		if (countChars(myBarCodeDigit, FULL_BAR) != 2 && countChars(myBarCodeDigit, HALF_BAR) != 3) {
-		    System.out.println("BAD DIGIT PATTERN!!!"); // DEBUG
 		    return false;
 		} else {
 		    decodedDigitsSum += Integer.parseInt(codeToDigit(myBarCodeDigit));
@@ -148,12 +145,10 @@ public class BarCode {
 	    // Validate the check digit pattern
 	    String checkDigitBarCode = myBarCode.substring(26, 31);
 	    if (countChars(checkDigitBarCode, FULL_BAR) != 2 && countChars(checkDigitBarCode, HALF_BAR) != 3) {
-		System.out.println("BAD CHECK DIGIT!!!"); // DEBUG
 		return false;
 	    } else {
 		// Validate the check digit value
 		if (getCheckDigit(decodedDigitsSum) != Integer.parseInt(codeToDigit(checkDigitBarCode))) {
-		    System.out.println("BAD CHECK DIGIT VALUE!!!"); // DEBUG
 		    return false;
 		}
 	    }
@@ -187,7 +182,6 @@ public class BarCode {
 
     private int getCheckDigit(int digitsSum) {
 	int roundUpTen = (digitsSum/10 + 1) * 10;
-	System.out.println("Check Digit: " + (roundUpTen - digitsSum)); // DEBUG
 	return roundUpTen - digitsSum;
     }
 }
