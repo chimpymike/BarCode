@@ -78,8 +78,8 @@ public class BarCode {
 	    // Decode the 5 zipcode digits
 	    for (int i = 1; i < myBarCode.length()-7; i += 5) {
 		// Get the single digit string
-		String myBarCodeDigit = myBarCode.substring(i, i + 4);
-		decodedZipCode.append(myBarCodeDigit);
+		String myBarCodeDigit = myBarCode.substring(i, i + 5);
+		decodedZipCode.append(codeToDigit(myBarCodeDigit));
 	    }
 	    // Return the decoded zipcode as a String
 	    return decodedZipCode.toString();
