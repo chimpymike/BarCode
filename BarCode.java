@@ -141,15 +141,17 @@ public class BarCode {
 		} else {
 		    decodedDigitsSum += Integer.parseInt(codeToDigit(myBarCodeDigit));
 		}
-		// Validate the check digit pattern
-		String checkDigitBarCode = myBarCode.substring(26, 30);
-		if (countChars(checkDigitBarCode, FULL_BAR) != 2 && countChars(checkDigitBarCode, HALF_BAR) != 3) {
+	    }
+	    // Validate the check digit pattern
+	    String checkDigitBarCode = myBarCode.substring(26, 31);
+	    if (countChars(checkDigitBarCode, FULL_BAR) != 2 && countChars(checkDigitBarCode, HALF_BAR) != 3) {
+		System.out.println("BAD CHECK DIGIT!!!"); // DEBUG
+		return false;
+	    } else {
+		// Validate the check digit value
+		if (getCheckDigit(decodedDigitsSum) != Integer.parseInt(codeToDigit(checkDigitBarCode))) {
+		    System.out.println("BAD CHECK DIGIT VALUE!!!"); // DEBUG
 		    return false;
-		} else {
-		    // Validate the check digit value
-		    if (getCheckDigit(decodedDigitsSum) != Integer.parseInt(codeToDigit(checkDigitBarCode))) {
-			return false;
-		    }
 		}
 	    }
 	}
