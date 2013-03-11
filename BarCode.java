@@ -135,7 +135,7 @@ public class BarCode {
 	    // Check for valid digit patterns and a valid check digit
 	    int decodedDigitsSum = 0;
 	    for (int i = 1; i < myBarCode.length()-7; i += 5) {
-		String myBarCodeDigit = myBarCode.substring(i, i + 4);
+		String myBarCodeDigit = myBarCode.substring(i, i + 5);
 		if (countChars(myBarCodeDigit, FULL_BAR) != 2 && countChars(myBarCodeDigit, HALF_BAR) != 3) {
 		    return false;
 		} else {
