@@ -5,7 +5,7 @@ public class BarCodeTest {
 	// 1.
 	BarCode testBarCode1 = new BarCode("02138");
 	System.out.println("ZipCode: " + testBarCode1.getZipCode());
-	// System.out.println("Barcode: " + testBarCode.getZipCode());
+	System.out.println("Barcode: " + testBarCode1.getBarCode());
 
 	// 2.
 	BarCode testBarCode2 = new BarCode("||:|:::|:|:||::::::||:|::|:::|||");
@@ -13,7 +13,7 @@ public class BarCodeTest {
 	if (testZipCode2.equals("")) {
 	    System.out.println("Error. " + testBarCode2 + " is not a valid BarCode.");
 	} else {
-	    System.out.println("ZipCode: + " testZipCode2);
+	    System.out.println("ZipCode: " + testZipCode2);
 	}
 
 	
