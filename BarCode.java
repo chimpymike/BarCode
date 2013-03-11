@@ -16,8 +16,7 @@ public class BarCode {
 	if (code.length() == 5) {
 	    // This is a zipcode
 	    myZipCode = code;
-	    // Placeholder for the encode to barcode method
-	    // encode();
+	    encode();
 	} else if (code.length() == 32) {
 	    // This is a barcode
 	    myBarCode = code;
