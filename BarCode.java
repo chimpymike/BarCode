@@ -44,6 +44,9 @@ public class BarCode {
 	
 	// Test for a valid zipcode
 	if (isValidZipCode()) {
+	    // Append the starting frame bar
+	    encodedZipCode.append(FULL_BAR);
+	    
 	    // Encode each digit in the zipcode and append to the encoded zipcode
 	    for (int i = 0; i < myZipCode.length(); i++) {
 		String currentDigit = myZipCode.substring(i, i + 1);
@@ -54,6 +57,11 @@ public class BarCode {
 	    // Append the encoded check digit to the encoded zipcode
 	    int checkDigit = getCheckDigit(digitsSum);
 	    encodedZipCode.append(digitToCode(Integer.toString(checkDigit)));
+
+	    // Append the ending frame bar
+	    encodedZipCode.append(FULL_BAR);
+
+	    // Return the encoded zipcode
 	    return encodedZipCode.toString();
 	} else {
 	    // This is not a valid zipcode, return an empty string
