@@ -100,7 +100,7 @@ public class BarCode {
 		digitDecoded += DIGIT_WEIGHTS[i] * (digitBarCode.charAt(i) == FULL_BAR ? FULL_BAR_VALUE : HALF_BAR_VALUE);
 	    }
 	}
-	return String.valueOf(digitBarCode);
+	return String.valueOf(digitDecoded);
     }
 
     private String digitToCode(String digit) {
