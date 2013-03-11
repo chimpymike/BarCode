@@ -69,6 +69,25 @@ public class BarCode {
 	}
     }
 
+    private String decode() {
+	// Test for a valid barcode
+	if (isValidBarCode()) {
+	    // Variable to hold the decoded zipcode
+	    StringBuilder decodedZipCode = new StringBuilder();
+	    // Decode the 5 zipcode digits
+	    for (int i = 1; i < myBarCode.length()-7; i += 5) {
+		// Get the single digit string
+		String myBarCodeDigit = myBarCode.substring(i, i + 4);
+		decodedZipCode.append(myBarCodeDigit);
+	    }
+	    // Return the decoded zipcode as a String
+	    return decodedZipCode.toString();
+	} else {
+	    // This is not a valid barcode, return an empty string
+	    return "";
+	}
+    }
+
     private String codeToDigit(String digitBarCode) {
 	// Decoded digit
 	int digitDecoded = 0;
