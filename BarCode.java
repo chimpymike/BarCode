@@ -37,6 +37,31 @@ public class BarCode {
 	return myBarCode;
     }
 
+    private String encode() {
+	// Variable to hold the encoded zipcode
+	StringBuilder encodedZipCode = new StringBuilder();
+	// Variable to hold the sum of the digits for calculating the check digit
+	int digitsSum = 0;
+	
+	// Test for a valid zipcode
+	if (isValidZipCode()) {
+	    // Encode each digit in the zipcode and append to the encoded zipcode
+	    for (int i = 0; i < myZipCode.length(); i++) {
+		String currentDigit = myZipCode.substring(i, i + 1);
+		encodedZipCode.append(digitToCode(currentDigit));
+		digitsSum += Integer.parseInt(currentDigit);
+	    }
+
+	    // Append the encoded check digit to the encoded zipcode
+	    int checkDigit = getCheckDigit(digitsSum);
+	    encodedZipCode.append(digitToCode(Integer.toString(checkDigit)));
+	    return encodedZipCode.toString();
+	} else {
+	    // This is not a valid zipcode, return an empty string
+	    return "";
+	}
+    }
+
     private String codeToDigit(String digitBarCode) {
 	// Decoded digit
 	int digitDecoded = 0;
