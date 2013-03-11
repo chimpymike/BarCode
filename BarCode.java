@@ -1,3 +1,12 @@
+/*
+ * Name: Michael Callahan
+ * Course: CSCI E-50B
+ * Date: 03/11/2013
+ * Assignment Number: 52
+ */
+
+// BarCode.java
+
 public class BarCode {
     // Class Constants
     private static final String ZERO_DIGIT_BARCODE = "||:::";
