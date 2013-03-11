@@ -7,6 +7,12 @@
 
 // BarCode.java
 
+/**
+ * This class will valiate and encode/decode USPS ZipCode BarCodes.
+ *
+ * @author Michael Callahan
+ * @version Last Modified 03_11_2013
+ */
 public class BarCode {
     // Class Constants
     private static final String ZERO_DIGIT_BARCODE = "||:::";
